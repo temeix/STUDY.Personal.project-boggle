@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace project_boggle
 {
-    internal class Joueur
+    public class Joueur
     {
         private string nom;
         private int score;
