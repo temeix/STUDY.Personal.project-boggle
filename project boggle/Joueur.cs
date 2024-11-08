@@ -11,6 +11,7 @@ namespace project_boggle
         private string nom;
         private int score;
         private List<string> liste;
+        private string[] dico;
 
         public Joueur (string nom)
         {
@@ -48,5 +49,6 @@ namespace project_boggle
             }
             return phrase;
         }
+        
     }
 }

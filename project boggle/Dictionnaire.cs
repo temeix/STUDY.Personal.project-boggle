@@ -11,19 +11,20 @@ namespace project_boggle
         private List<List<string>> liste_mot_par_taille;
         private List<List<string>> liste_mot_par_lettre;
         private string langue;
+        private string[] dico;
 
         string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         public Dictionnaire(string langue)
         {
-            this.langue = langue;
+            
             StreamReader sr = null;
-            langue =langue.ToLower();
-            if(langue == "français"||langue=="francais")
+            this.langue =langue.ToLower();
+            if(this.langue == "français"||this.langue=="francais")
             {
                 sr = new StreamReader("MotsPossiblesFR.txt");
             }
-            else if (langue == "anglais" || langue == "english")
+            else if (this.langue == "anglais" || this.langue == "english")
             {
                 sr = new StreamReader("MotsPossiblesEN.txt");
             }
@@ -33,20 +34,20 @@ namespace project_boggle
             }
 
             string line = sr.ReadLine();
-            string[] dico = line.Split(" ");
+            this.dico = line.Split(" ");
 
-            Console.WriteLine(dico.Length);
+            Console.WriteLine(this.dico.Length);
            
             this.liste_mot_par_taille = new List<List<string>>();
             int cpt = 2;
             do
             {
                 liste_mot_par_taille.Add(new List<string>());
-                for (int i = 0; i < dico.Length; i++)
+                for (int i = 0; i < this.dico.Length; i++)
                 {
-                    if (dico[i].Length == cpt)
+                    if (this.dico[i].Length == cpt)
                     {
-                        this.liste_mot_par_taille[cpt-2].Add(dico[i]);
+                        this.liste_mot_par_taille[cpt-2].Add(this.dico[i]);
                     }
 
                 }
@@ -61,11 +62,11 @@ namespace project_boggle
             {
                 this.liste_mot_par_lettre.Add(new List<string>());
 
-                for(int j = 0; j<dico.Length;j++)
+                for(int j = 0; j<this.dico.Length;j++)
                 {
-                    if (dico[j][0] == alphabet[i])
+                    if (this.dico[j][0] == alphabet[i])
                     {
-                        this.liste_mot_par_lettre[i].Add(dico[j]);
+                        this.liste_mot_par_lettre[i].Add(this.dico[j]);
                     }
                 }
 
@@ -87,6 +88,35 @@ namespace project_boggle
                 phrase += this.liste_mot_par_lettre[i].Count + " mots qui commencent par la lettre " + alphabet[i]+", ";
             }
             return phrase;
+        }
+
+        public bool RechDichoRecursif(string mot,int gauche, int droite)
+        {
+            int milieu = (gauche + droite) / 2;
+            if (gauche > droite)
+            {
+                return false;
+            }
+
+            else if (this.dico[milieu] == mot)
+            {
+                return true;
+            }
+            else if (this.dico[milieu].CompareTo(mot) > 0)
+            {
+                return RechDichoRecursif(mot, gauche, milieu-1);
+            }
+            else 
+            {
+                return RechDichoRecursif(mot,milieu+1, droite);
+            }
+            
+        }
+
+
+        public string[] Dico
+        {
+            get { return this.dico; }
         }
 
 
