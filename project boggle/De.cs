@@ -9,15 +9,12 @@ namespace project_boggle
 {
     public class De
     {
-        private List<char> liste_lettre_de;
+        private char[] liste_lettre_de;
 
 
         Random r = new Random();
         StreamReader sr = new StreamReader("Lettre.txt");
 
-        
-
-        
 
         public De()
         {
@@ -25,7 +22,6 @@ namespace project_boggle
 
             string line= sr.ReadLine();
 
-            int nb_total_lettre = 0;
 
             while (line != null)
             {
@@ -33,7 +29,6 @@ namespace project_boggle
 
                 int cpt = Convert.ToInt32(line.Substring(dernierpv));  // recupere le nombre apres le dernier pt virgule;
 
-                nb_total_lettre += cpt;
 
                 for(int i=0; i<cpt; i++)
                 {
@@ -41,6 +36,26 @@ namespace project_boggle
                 }
                 line = sr.ReadLine();
             }
+            sr.Close();
+
+            //on a recuperer un liste avec toutes les lettres de l'alphabet, il y a autant d'exemplaire de chaques lettres que de fois où elle peut apparaitre
+
+            this.liste_lettre_de = new char[6];
+
+            for (int i = 0; i < 6; i++)
+            {
+                int cpt=r.Next(0,liste_lettre_entiere.Count);
+
+                this.liste_lettre_de[i] = liste_lettre_entiere[cpt];
+
+                liste_lettre_entiere.RemoveAt(cpt);
+            }
+
+            //On a pris une valeur cpt aleatoire entre 0 et la longeur du tableau dynamique liste_lettre_entiere,
+            //mis la lettre positionnée à la cpt -nieme du tableau liste_lettre_entiere dans un des slots de notre tableau liste_lettre_de
+            //et tout ca 6 fois pour les 6 faces.
+
+
         }
     }
 }
