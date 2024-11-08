@@ -10,18 +10,19 @@ namespace project_boggle
     public class De
     {
         private char[] liste_lettre_de;
+        private char lettre_visible;
 
 
         Random r = new Random();
-        StreamReader sr = new StreamReader("Lettre.txt");
+        
 
 
         public De()
         {
             List<char> liste_lettre_entiere = new List<char>();
+            StreamReader sr = new StreamReader("Lettre.txt");
 
             string line= sr.ReadLine();
-
 
             while (line != null)
             {
@@ -44,7 +45,7 @@ namespace project_boggle
 
             for (int i = 0; i < 6; i++)
             {
-                int cpt=r.Next(0,liste_lettre_entiere.Count);
+                int cpt=r.Next(liste_lettre_entiere.Count);
 
                 this.liste_lettre_de[i] = liste_lettre_entiere[cpt];
 
@@ -57,5 +58,19 @@ namespace project_boggle
 
 
         }
+
+        public void Lance(Random r)
+        {
+            int valeur =r.Next(6);
+            this.lettre_visible = this.liste_lettre_de[valeur];
+        }
+        //On a definit la face visible de notre dé
+
+        public string toString()
+        {
+            return this.lettre_visible+" est la face visible de notre dé.";
+        }
+
+
     }
 }
