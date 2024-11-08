@@ -7,9 +7,13 @@
             Console.WriteLine("Hello, World!skusku lala");
             De de = new De();
             Random r = new Random();
-            de.Lance(r);
-            de.toString();
+            for (int i = 0; i < 20; i++)
+            {
+                de.Lance(r);
+                Console.Write(de.toString());
+            }
             Console.ReadLine();
+            
         }
     }
 }

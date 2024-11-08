@@ -20,7 +20,7 @@ namespace project_boggle
         public De()
         {
             List<char> liste_lettre_entiere = new List<char>();
-            StreamReader sr = new StreamReader("Files/Lettre.txt");
+            StreamReader sr = new StreamReader("Lettres.txt");
 
             string line= sr.ReadLine();
 
@@ -28,7 +28,7 @@ namespace project_boggle
             {
                 int dernierpv= line.LastIndexOf(";");
 
-                int cpt = Convert.ToInt32(line.Substring(dernierpv));  // recupere le nombre apres le dernier pt virgule;
+                int cpt = Convert.ToInt32(line.Substring(dernierpv+1));  // recupere le nombre apres le dernier pt virgule;
 
 
                 for(int i=0; i<cpt; i++)
@@ -68,7 +68,7 @@ namespace project_boggle
 
         public string toString()
         {
-            return this.lettre_visible+" est la face visible de notre dé.";
+            return this.lettre_visible+" est la face visible de notre dé.\n";
         }
 
 
