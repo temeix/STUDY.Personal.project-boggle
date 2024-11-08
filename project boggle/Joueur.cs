@@ -15,6 +15,8 @@ namespace project_boggle
         public Joueur (string nom)
         {
             this.nom = nom;
+            this.score = 0;
+            this.liste = new List<string>();
         }
         public bool Contain(string mot)
         {
@@ -33,6 +35,7 @@ namespace project_boggle
             if(!Contain(mot))
             {
                 this.liste.Add(mot);
+                this.score++;
             }
         }
 
