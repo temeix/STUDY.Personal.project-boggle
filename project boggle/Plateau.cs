@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public project_boggle
+namespace  project_boggle
 {
-    internal class Plateau
+    public class Plateau
     {
     }
 }
