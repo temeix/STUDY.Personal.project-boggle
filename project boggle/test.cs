@@ -9,7 +9,7 @@ namespace project_boggle
     public class test
     {
         public string hihi = "caca";
-            public string keke="test";
+        public string keke="test";
 
     }
 }
