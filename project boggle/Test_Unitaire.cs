@@ -39,6 +39,10 @@ namespace project_boggle
             string[] dico = line.Split(" ");
             Console.WriteLine(dico.Length);
             */
+            Console.WriteLine();
+            Console.WriteLine();
+            Dictionnaire dico = new Dictionnaire("francais");
+            Console.WriteLine (dico.toString());
 
         }
     }
