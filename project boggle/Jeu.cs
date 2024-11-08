@@ -1,6 +1,6 @@
 ﻿namespace project_boggle
 {
-    internal class Program
+    internal class Jeu
     {
         static void Main(string[] args)
         {
