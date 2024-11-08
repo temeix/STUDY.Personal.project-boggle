@@ -8,5 +8,6 @@ namespace  project_boggle
 {
     public class Plateau
     {
+        
     }
 }

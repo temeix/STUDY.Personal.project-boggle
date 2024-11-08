@@ -33,6 +33,13 @@ namespace project_boggle
             Console.WriteLine(adam.toString());
 
 
+            /*          pour regarder le nombre de mot du dico
+            StreamReader sr = new StreamReader("MotsPossiblesFR.txt");
+            string line = sr.ReadLine();
+            string[] dico = line.Split(" ");
+            Console.WriteLine(dico.Length);
+            */
+
         }
     }
 }
