@@ -20,8 +20,11 @@ namespace project_boggle
                 de.Lance(r);
                 Console.Write(de.toString());
             }
-            ///On teste la fonction contain addmot et to string.
-            ///on ajoute plusieurs mots et on met des doublons pour verifier que tous les programmes fonctionnent.
+
+
+            ///test de la fonction Contain Add_Mot et toString.
+            ///on ajoute plusieurs mots et on met des doublons pour verifier que tous les programmes fonctionnent.           
+
             Joueur adam = new Joueur ("Adam");
             adam.Add_Mot("POMPIER");
             adam.Add_Mot("POLICIER");
