@@ -20,7 +20,7 @@ namespace project_boggle
         public De()
         {
             List<char> liste_lettre_entiere = new List<char>();
-            StreamReader sr = new StreamReader("Lettre.txt");
+            StreamReader sr = new StreamReader("Files/Lettre.txt");
 
             string line= sr.ReadLine();
 
