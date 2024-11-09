@@ -43,7 +43,7 @@ namespace project_boggle
             Console.WriteLine();
             Dictionnaire dico = new Dictionnaire("francais");
             Console.WriteLine (dico.toString());
-            Console.WriteLine(dico.RechDichoRecursif("NUQUES",0,dico.Dico.Length-1));
+            Console.WriteLine(dico.RechDichoRecursif("avoir",0,dico.Dico.Length-1));
 
 
 
